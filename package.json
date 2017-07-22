@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/canmertc/timestamp_microservice/issues"
   },
-  "homepage": "https://github.com/canmertc/timestamp_microservice#readme"
+  "homepage": "https://github.com/canmertc/timestamp_microservice#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }
