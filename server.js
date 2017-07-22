@@ -6,6 +6,13 @@ app.get('/:time',function(req, res){
     var time = req.params.time;
     if(time.split(",").length == 1){
         var timeParser = new Date(time*1000);
+        console.log(timeParser.getFullYear())
+        if(timeParser.getFullYear().toString() == "NaN"){
+            res.send(JSON.stringify({
+                unix : "null",
+                natural : "null"
+            }))
+        }
         res.send(JSON.stringify({
             unix : time,
             natural : months[timeParser.getMonth()]+" "+timeParser.getDate()+", "+timeParser.getFullYear()
@@ -13,6 +20,13 @@ app.get('/:time',function(req, res){
     }
     else{
         var timeParser = (new Date(time).getTime()/1000).toString();
+        if(timeParser.getFullYear().toString() == "NaN"){
+            res.send(JSON.stringify({
+                unix : "null",
+                natural : "null"
+            }))
+        }
+    
         res.send(JSON.stringify({
             unix : timeParser,
             natural : time
