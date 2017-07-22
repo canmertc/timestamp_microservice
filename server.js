@@ -19,7 +19,7 @@ app.get('/:time',function(req, res){
         }))
     }
     else{
-        var timeParser = (new Date(time).getTime()/1000).toString();
+        var timeParser = new Date(time);
         if(timeParser.getFullYear().toString() == "NaN"){
             res.send(JSON.stringify({
                 unix : "null",
@@ -28,7 +28,7 @@ app.get('/:time',function(req, res){
         }
     
         res.send(JSON.stringify({
-            unix : timeParser,
+            unix : (timeParser.getTime()/1000).toString(),
             natural : time
         }))        
     }
